@@ -1,0 +1,28 @@
+{
+  "name": "ngx-countme",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:krisn/ngx-countme.git"
+  },
+  "author": {
+    "name": "Kris Nyunt",
+    "email": "kris.nyunt@gmail.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "git@github.com:krisn/ngx-countme.git/issues"
+  },
+  "main": "ngx-countme.umd.js",
+  "module": "ngx-countme.js",
+  "jsnext:main": "ngx-countme.js",
+  "typings": "ngx-countme.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
