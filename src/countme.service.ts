@@ -42,7 +42,7 @@ export class CountmeService {
     if (options.words) {
       // replace all non letters (so we don't count 1 as a word)
       // split on whitespace
-      const words = input.replace(/[^a-zA-Z\s]/g, '').split(/[\s]+/);
+      const words = input.replace(/[^a-zA-Z\s]/g, '').trim().split(/[\s]+/);
       this.result.words = words ? words.length : 0;
     } else {
       delete this.result.words;
