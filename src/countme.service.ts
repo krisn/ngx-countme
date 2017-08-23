@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CountmeService {
 
-  result: any = {
+  private result: any = {
     // tabs: 0,
     spaces: 0,
     chars: 0,
@@ -21,17 +21,20 @@ export class CountmeService {
     if (!input) { return this.result; }
 
     // input = input.trim();
-    this.result.spaces = input.match(/([\s]+)/g).length;
+    const spaces = input.match(/([\s]+)/g);
+    this.result.spaces = spaces ? spaces.length : 0;
     this.result.chars = input.length - this.result.spaces;
 
     if (options.numbers) {
-      this.result.numbers = input.match(/[0-9]/g).length;
+      const numbers =  input.match(/[0-9]/g);
+      this.result.numbers = numbers ? numbers.length : 0;
     } else {
       delete this.result.numbers;
     }
 
     if (options.letters) {
-      this.result.letters = input.match(/[a-zA-Z]/g).length;
+      const letters = input.match(/[a-zA-Z]/g);
+      this.result.letters = letters ? letters.length : 0;
     } else {
       delete this.result.letters;
     }
@@ -39,7 +42,8 @@ export class CountmeService {
     if (options.words) {
       // replace all non letters (so we don't count 1 as a word)
       // split on whitespace
-      this.result.words = input.replace(/[^a-zA-Z\s]/g, '').split(/[\s]+/).length;
+      const words = input.replace(/[^a-zA-Z\s]/g, '').split(/[\s]+/);
+      this.result.words = words ? words.length : 0;
     } else {
       delete this.result.words;
     }
