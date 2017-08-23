@@ -1,35 +1,27 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SampleComponent } from './sample.component';
-import { SampleDirective } from './sample.directive';
-import { SamplePipe } from './sample.pipe';
-import { SampleService } from './sample.service';
+import { CountmeDirective } from './countme.directive';
+import { CountmeService } from './countme.service';
 
-export * from './sample.component';
-export * from './sample.directive';
-export * from './sample.pipe';
-export * from './sample.service';
+export * from './countme.directive';
+export * from './countme.service';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
+    CountmeDirective
   ],
   exports: [
-    SampleComponent,
-    SampleDirective,
-    SamplePipe
+    CountmeDirective
   ]
 })
-export class SampleModule {
+export class CountmeModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SampleModule,
-      providers: [SampleService]
+      ngModule: CountmeModule,
+      providers: [CountmeService]
     };
   }
 }
