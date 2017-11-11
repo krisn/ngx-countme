@@ -23,31 +23,31 @@ export class CountmeDirective implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('el', this.el);
+    // console.log('el', this.el);
     // console.log('countme', this.countme);
     // this.render(this.countme.position, null, null);
   }
 
-  /*@HostListener('keyup') onKeyup() {
+  @HostListener('keyup') onKeyup() {
     const data = this.el.nativeElement.value ? this.el.nativeElement.value : this.el.nativeElement.innerText;
     const result = this.countmeService.count(data);
-    this.countmeChange.emit(result);//Object.assign(result, this.countme || {}));
+    this.countmeChange.emit(result); // Object.assign(result, this.countme || {}));
     // console.log('keyup', result);
-  }*/
-
-  @HostListener('change') onChange() {
-    const data = this.el.nativeElement.value ? this.el.nativeElement.value : this.el.nativeElement.innerText;
-    const result = this.countmeService.count(data);
-    this.countmeChange.emit(result);//Object.assign(result, this.countme || {}));
-    console.log('change', result);
   }
 
-  /*@HostListener('DOMSubtreeModified') onChangeContent() {
+  /*@HostListener('change') onChange() {
     const data = this.el.nativeElement.value ? this.el.nativeElement.value : this.el.nativeElement.innerText;
     const result = this.countmeService.count(data);
-    this.countmeChange.emit(Object.assign(result, this.countme || {}));
-    // console.log('changeContent', result);
+    this.countmeChange.emit(result); // Object.assign(result, this.countme || {}));
+    // console.log('change', result);
   }*/
+
+  @HostListener('DOMSubtreeModified') onChangeContent() {
+    const data = this.el.nativeElement.value ? this.el.nativeElement.value : this.el.nativeElement.innerText;
+    const result = this.countmeService.count(data);
+    this.countmeChange.emit(result); // Object.assign(result, this.countme || {}));
+    // console.log('changeContent', result);
+  }
 
   private render(position, color, font) {
     // create a label and attach to the parent element

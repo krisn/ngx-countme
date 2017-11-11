@@ -1,6 +1,16 @@
 # ngx-countme
 
+Angular 2+ custom directive that counts the number of words, letters, numbers, characters, and spaces in any text-based HTML or FORM element. Dynamically updates when the content inside the element is modified as well. 
+
+[Preview in Plunker](https://plnkr.co/4ixQIdmUN0xsozODyDmw)
+
+[![npm version](https://badge.fury.io/js/ngx-countme.svg)](https://badge.fury.io/js/ngx-countme)
+[![license](https://img.shields.io/npm/l/ngx-countme.svg)](https://www.npmjs.com/package/ngx-countme)
+
+
 ## Installation
+
+[![NPM](https://nodei.co/npm/ngx-countme.png?downloads=true&stars=true)](https://nodei.co/npm/ngx-countme/)
 
 To install this library, run:
 
@@ -8,64 +18,59 @@ To install this library, run:
 $ npm install ngx-countme --save
 ```
 
-## Consuming your library
+## Usage
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
+Add the directive in any element of your Angular application's template:
 
-```bash
-$ npm install ngx-countme
+```html
+<!-- You can now use your library component in app.component.html -->
+<h1>{{title}}</h1>
+<textarea [(countme)]="result"></textarea>
+<p>Words: {{result && result.words}}, Letters: {{result && result.letters}}, Spaces: {{result && result.spaces}}</p>
 ```
 
-and then from your Angular `AppModule`:
+In your Angular `AppModule`, import the library then use the `CountmeService` to count any text in your application logic:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 
-// Import your library
-import { SampleModule } from 'ngx-countme';
+// Import the library
+import { CountmeModule, CountmeService } from 'ngx-countme';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [ AppComponent ],
   imports: [
     BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
+    // Specify the library as an import
+    CountmeModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CountmeService ],
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}
+
+@Component()
+class AppComponent implements OnInit {
+  result: any;
+  // Inject the service into your component
+  constructor(private countmeService: CountmeService) {}
+  ngOnInit() {
+    // Use the service to count any string or text
+    console.log('Countme', this.countmeService.count('Big old fox jumps over a wall'));
+  }
+}
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
 
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
-```
+## Parameters
 
-## Development
+Parameter | Type | Default | Description 
+--- | --- | --- | ---
+**countme** | *json* | `null` | Results as JSON object
 
-To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
 
-```bash
-$ npm run build
-```
-
-To lint all `*.ts` files:
-
-```bash
-$ npm run lint
-```
 
 ## License
 

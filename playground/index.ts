@@ -15,10 +15,10 @@ import { CountmeModule, CountmeService } from '../dist/ngx-countme.umd.js';
   <div>
     <h2>ngx-countme!</h2>
     <h3>Input</h3>
-    <p><input id="cm1" type="text" [countme] (countmeChange)="cm1Ch($event)" /></p>
+    <p><input type="text" [countme] (countmeChange)="cm1Ch($event)" /></p>
     <p>Words: {{cm1 && cm1.words}}, Letters: {{cm1 && cm1.letters}}, Spaces: {{cm1 && cm1.spaces}}</p>
     <h3>Textarea</h3>
-    <p><textarea id="cm2" [(countme)]="cm2" (change)="cm2Ch()" ></textarea></p>
+    <p><textarea [(countme)]="cm2" (change)="cm2Ch()" ></textarea></p>
     <p>Words: {{cm2 && cm2.words}}, Letters: {{cm2 && cm2.letters}}, Spaces: {{cm2 && cm2.spaces}}</p>
     <h3>Paragraph</h3>
     <p class="paragraph" [(countme)]="cm3">{{sample}}</p>
