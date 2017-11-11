@@ -8,6 +8,7 @@ export class CountmeDirective implements AfterViewInit {
 
   @Input() countmeStyle: string;
   @Input() countme: any;
+  @Input() position: any;
 
   constructor(private el: ElementRef,
               private countmeService: CountmeService) {
