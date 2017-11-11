@@ -2,7 +2,7 @@
 
 Angular 2+ custom directive that counts the number of words, letters, numbers, characters, and spaces in any text-based HTML or FORM element. Dynamically updates when the content inside the element is modified as well. 
 
-[Preview in Plunker](https://plnkr.co/4ixQIdmUN0xsozODyDmw)
+[Preview in Plunker](https://plnkr.co/R5W1BnfoeBOlEifUwGU7)
 
 [![npm version](https://badge.fury.io/js/ngx-countme.svg)](https://badge.fury.io/js/ngx-countme)
 [![license](https://img.shields.io/npm/l/ngx-countme.svg)](https://www.npmjs.com/package/ngx-countme)
