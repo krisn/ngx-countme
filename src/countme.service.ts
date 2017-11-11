@@ -16,7 +16,7 @@ export class CountmeService {
   constructor() {
   }
 
-  count(input: string, options: any = {chars: true, words: true}) {
+  count(input: string, options: any = {letters: true, words: true}) {
 
     if (!input) { return this.result; }
 
